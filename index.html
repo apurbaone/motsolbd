@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotsolBD - Japanese Car Importer & Service Solution</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .fullscreen-bg {
+            position: relative;
+            width: 90vw;
+            height: 90vh;
+            margin: auto;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            background: black;
+        }
+        .fullscreen-bg video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 90vw;
+            height: 90vh;
+            object-fit: cover;
+            border-radius: 20px;
+            background: black;
+        }
+        .video-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 90vw; height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background: rgba(0,0,0,0.3);
+            pointer-events: none;
+        }
+        @media (max-width: 576px) {
+            .fullscreen-bg, .fullscreen-bg video, .video-overlay {
+                width: 100vw !important;
+                height: 100vh !important;
+                min-height: 100vh !important;
+            }
+            .fullscreen-bg video {
+                object-fit: cover !important;
+                background: black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner -->
+    <header class="bg-primary text-white text-center py-4"
+            style="background:rgba(0, 123, 255, 0.5) !important; backdrop-filter: blur(2px);">
+        <img src="assets/logo.jpg" alt="MotsolBD Logo" height="60" class="mb-2">
+        <h1 class="mb-0" style="font-size:2rem;">MotsolBD</h1>
+        <p class="mb-0" style="font-size:1rem;">Your One-Stop Japanese Car Import & Service Solution in Bangladesh</p>
+        <div class="fw-bold mt-2" style="font-size:1.2rem;">
+            We are coming soon to beat the Speed
+        </div>
+    </header>
+
+    <!-- Fullscreen Video Section -->
+    <div class="fullscreen-bg" style="width:90vw; height:90vh; margin:auto; border-radius:20px; box-shadow:0 0 30px rgba(0,0,0,0.3); overflow:hidden; background:black;">
+        <video id="mainVideo"
+               autoplay muted playsinline
+               style="width:100%; height:100%; object-fit:cover; border-radius:20px; background:black;"></video>
+    </div>
+
+    <script>
+        // filepath: c:\xampp\htdocs\motsolbd\index.html
+        const videos = [
+            "assets/motovideo.mp4"
+        ];
+        let current = 0;
+        const videoElement = document.getElementById('mainVideo');
+        videoElement.src = videos[current];
+        videoElement.play();
+
+        videoElement.addEventListener('ended', function () {
+            videoElement.currentTime = 0;
+            videoElement.play();
+        });
+    </script>
+
+    <!-- Contact Section -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container text-center">
+            <img src="assets/logoblack.jpg" alt="MotsolBD Black Logo" height="50" class="mb-3">
+            <h4>Contact Us</h4>
+            <p>
+                Email: <a href="mailto:info@motsolbd.com" class="text-white">info@motsolbd.com</a><br>
+                Phone: <a href="tel:+880123456789" class="text-white">+880 1933334443</a><br>
+                Address: 167/21 Matikata Road, Dhaka, Bangladesh
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle CDN (for mobile menu toggle) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
